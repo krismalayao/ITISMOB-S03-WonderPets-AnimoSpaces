@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC"
+    tools:context=".ui.admin.AdminActivity">
+
+    <!-- Top DLSU Green Header -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_admin_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#005A36">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reservation Management"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="#FFFFFF"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADMIN"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="#005A36"
+                    android:background="#FFFFFF"
+                    android:paddingStart="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="4dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+
+            </RelativeLayout>
+
+            <!-- Stats Summary Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Pending Count Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardBackgroundColor="#004D2E"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/tv_stat_pending_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="#FBBF24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pending Approvals"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="#E2E8F0" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Approved Count Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardBackgroundColor="#004D2E"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/tv_stat_approved_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="#4ADE80" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Approved"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="#E2E8F0" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Category Tabs -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_admin"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_below="@id/card_admin_header"
+        android:background="#FFFFFF"
+        app:tabIndicatorColor="#005A36"
+        app:tabSelectedTextColor="#005A36"
+        app:tabTextColor="#6B7280">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pending Requests" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All Reservations" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- Reservations List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_admin_reservations"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tab_layout_admin"
+        android:layout_above="@+id/bottom_nav_bar"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_admin_reservation" />
+
+    <!-- Empty State -->
+    <TextView
+        android:id="@+id/tv_admin_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tab_layout_admin"
+        android:layout_above="@+id/bottom_nav_bar"
+        android:gravity="center"
+        android:text="No reservation records found."
+        android:textSize="14sp"
+        android:textColor="#9CA3AF"
+        android:visibility="gone" />
+
+    <!-- Shared Bottom Navigation Bar Widget -->
+    <include
+        android:id="@+id/bottom_nav_bar"
+        layout="@layout/layout_bottom_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

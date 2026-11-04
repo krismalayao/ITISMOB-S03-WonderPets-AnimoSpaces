@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_building_chip"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#005A36">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="14dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="8dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_building_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ANDREW"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#005A36"
+            android:background="@drawable/bg_chip_code"
+            android:paddingStart="6dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="2dp"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_building_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Andrew Hall"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#1F2937" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

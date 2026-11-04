@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Circle background -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M50,0 A50,50 0 1,0 50,100 A50,50 0 1,0 50,0 Z" />
+
+    <!-- Skin/Face -->
+    <path
+        android:fillColor="#FFD1B3"
+        android:pathData="M38,35 C38,20 62,20 62,35 L62,55 C62,65 38,65 38,55 Z" />
+
+    <!-- Neck -->
+    <path
+        android:fillColor="#F0B292"
+        android:pathData="M44,52 L56,52 L56,66 L44,66 Z" />
+
+    <!-- White Shirt Collar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M20,100 L35,66 L50,80 L65,66 L80,100 Z" />
+
+    <!-- Dark Hair -->
+    <path
+        android:fillColor="#111827"
+        android:pathData="M32,32 C30,15 70,15 68,32 C60,20 40,20 32,32 Z" />
+
+</vector>

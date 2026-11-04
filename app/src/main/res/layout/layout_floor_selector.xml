@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_floor_selector"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="6dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#E5E7EB">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FLOOR"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            android:textColor="#6B7280"
+            android:layout_marginBottom="6dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_vertical_floor_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="220dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_floor_chip" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

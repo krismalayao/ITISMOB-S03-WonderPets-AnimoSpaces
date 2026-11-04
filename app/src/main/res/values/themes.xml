@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme with Google Sans typography and DLSU Green palette -->
+    <style name="Base.Theme.AnimoSpaces" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/dlsu_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/dlsu_mint</item>
+        <item name="colorSecondary">@color/dlsu_emerald</item>
+        <item name="android:statusBarColor">@color/dlsu_green</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Theme.AnimoSpaces" parent="Base.Theme.AnimoSpaces" />
+</resources>
