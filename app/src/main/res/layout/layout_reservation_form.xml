@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:paddingStart="20dp"
+    android:paddingTop="14dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="24dp">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="#D1D5DB" />
+
+    <TextView
+        android:id="@+id/tv_form_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Reserve A0801 - Andrew Gonzalez Hall"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#005A36"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tv_form_role_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Submitting as: Student Organization"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="#15803D"
+        android:layout_marginBottom="14dp" />
+
+    <!-- Event Title Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Event Title"
+        android:layout_marginBottom="10dp"
+        app:boxStrokeColor="#005A36">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_event_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Event Purpose Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Event Purpose / Description"
+        android:layout_marginBottom="10dp"
+        app:boxStrokeColor="#005A36">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_event_purpose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="2" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Time Slot & Date Inputs -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Date (e.g. Oct 18, 2026)"
+            android:layout_marginEnd="6dp"
+            app:boxStrokeColor="#005A36">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Oct 18, 2026"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Time Slot"
+            android:layout_marginStart="6dp"
+            app:boxStrokeColor="#005A36">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_time_slot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1:00 PM - 3:00 PM"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <!-- Attendee Count -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Estimated Attendees"
+        android:layout_marginBottom="16dp"
+        app:boxStrokeColor="#005A36">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_attendees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="40"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Submit Request Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_submit_request"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="Submit Reservation Request"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:cornerRadius="26dp"
+        android:backgroundTint="#005A36"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

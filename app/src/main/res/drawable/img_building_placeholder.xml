@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="200dp"
+    android:viewportWidth="400"
+    android:viewportHeight="200">
+
+    <!-- Background Gradient / Surface Fill -->
+    <path
+        android:pathData="M0,0h400v200h-400z"
+        android:fillColor="#103B29" />
+
+    <!-- Sky / Light Backdrop -->
+    <path
+        android:pathData="M0,0h400v160h-400z"
+        android:fillColor="#154D36" />
+
+    <!-- Distant Building Footprint -->
+    <path
+        android:pathData="M40,160V80h50v80z M110,160V50h70v160z M200,160V70h60v90z M280,160V90h80v70z"
+        android:fillColor="#1D6346" />
+
+    <!-- Main Foreground Building Silhouette -->
+    <path
+        android:pathData="M120,160V30h160v130z"
+        android:fillColor="#237A56" />
+
+    <!-- Roofline Trim -->
+    <path
+        android:pathData="M110,30h180v8h-180z"
+        android:fillColor="#34A853" />
+
+    <!-- Columns / Windows Grid (Upper Floor) -->
+    <path
+        android:pathData="M140,50h20v25h-20z M170,50h20v25h-20z M200,50h20v25h-20z M230,50h20v25h-20z"
+        android:fillColor="#A7F3D0" />
+
+    <!-- Windows Grid (Middle Floor) -->
+    <path
+        android:pathData="M140,88h20v25h-20z M170,88h20v25h-20z M200,88h20v25h-20z M230,88h20v25h-20z"
+        android:fillColor="#A7F3D0" />
+
+    <!-- Entrance Portal / Doors -->
+    <path
+        android:pathData="M180,160v-35h40v35z"
+        android:fillColor="#0D2E20" />
+
+    <!-- Ground / Lawn Base Bar -->
+    <path
+        android:pathData="M0,160h400v40h-400z"
+        android:fillColor="#0B2B1E" />
+
+    <path
+        android:pathData="M0,160h400v4h-400z"
+        android:fillColor="#34A853" />
+
+</vector>

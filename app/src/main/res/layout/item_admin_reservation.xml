@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_admin_reservation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#E2E8F0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:id="@+id/tv_admin_event_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="CSORG General Assembly"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#111827"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/tv_admin_room_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="A0802"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#005A36"
+                android:background="@drawable/bg_chip_code"
+                android:paddingStart="8dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="3dp"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_admin_requester"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Requested by: Angelyn Chua (Student Org)"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#005A36"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tv_admin_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Oct 15, 2026 • 1:00 PM - 3:00 PM (45 Attendees)"
+            android:textSize="12sp"
+            android:textColor="#4B5563"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:id="@+id/tv_admin_purpose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Purpose: Annual orientation and project presentation."
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:textColor="#6B7280"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Status Badge for Approved/Rejected items -->
+        <TextView
+            android:id="@+id/tv_admin_status_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Status: Pending Approval"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="#D97706"
+            android:background="@drawable/bg_status_available"
+            android:paddingStart="8dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="3dp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Admin Actions: Approve, Reject, Modify, Delete -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/btn_delete"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_status_reserved"
+                android:src="@android:drawable/ic_menu_delete"
+                app:tint="#DC2626"
+                android:contentDescription="Delete Reservation"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_modify"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="Modify"
+                android:textSize="11sp"
+                android:textColor="#005A36"
+                app:strokeColor="#005A36"
+                app:cornerRadius="19dp"
+                android:layout_marginEnd="8dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_reject"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="Reject"
+                android:textSize="11sp"
+                android:textColor="#DC2626"
+                app:strokeColor="#DC2626"
+                app:cornerRadius="19dp"
+                android:layout_marginEnd="6dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_approve"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="Approve"
+                android:textSize="11sp"
+                app:cornerRadius="19dp"
+                android:backgroundTint="#005A36"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

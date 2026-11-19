@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:paddingStart="20dp"
+    android:paddingTop="12dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="24dp">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="#D1D5DB" />
+
+    <!-- Title & Status Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:id="@+id/tv_detail_event_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/tv_detail_status_badge"
+            tools:text="CSORG General Assembly"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#111827" />
+
+        <TextView
+            android:id="@+id/tv_detail_status_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            tools:text="APPROVED"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#15803D"
+            android:background="@drawable/bg_status_available"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="4dp"
+            android:layout_marginStart="8dp" />
+
+    </RelativeLayout>
+
+    <!-- Venue Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="#F0FDF4"
+        app:strokeWidth="1dp"
+        app:strokeColor="#005A36"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tv_detail_room_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="A0801"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#005A36"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:id="@+id/tv_detail_building_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Andrew Gonzalez Hall (8th Floor)"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#111827" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Details Specs Grid -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
+        <!-- Requester -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="Requested By:"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#6B7280" />
+
+            <TextView
+                android:id="@+id/tv_detail_requester"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Angelyn Chua (Student Org)"
+                android:textSize="13sp"
+                android:textColor="#111827" />
+
+        </LinearLayout>
+
+        <!-- Date -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="Date:"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#6B7280" />
+
+            <TextView
+                android:id="@+id/tv_detail_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="📅 Oct 24, 2025"
+                android:textSize="13sp"
+                android:textColor="#111827" />
+
+        </LinearLayout>
+
+        <!-- Time Slot -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="Time Slot:"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#6B7280" />
+
+            <TextView
+                android:id="@+id/tv_detail_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="⏰ 2:00 PM - 4:00 PM"
+                android:textSize="13sp"
+                android:textColor="#111827" />
+
+        </LinearLayout>
+
+        <!-- Attendees -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="Expected Guests:"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#6B7280" />
+
+            <TextView
+                android:id="@+id/tv_detail_attendees"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="👥 30 Attendees"
+                android:textSize="13sp"
+                android:textColor="#111827" />
+
+        </LinearLayout>
+
+        <!-- Event Purpose -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Event Purpose:"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#6B7280"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tv_detail_purpose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Annual orientation meeting and project proposal presentation for computer science organization members."
+                android:textSize="13sp"
+                android:textColor="#374151"
+                android:background="#F9FAFB"
+                android:padding="10dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel_reservation"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Cancel Request"
+            android:textSize="12sp"
+            android:textColor="#DC2626"
+            app:strokeColor="#DC2626"
+            app:strokeWidth="1dp"
+            app:cornerRadius="20dp"
+            android:layout_marginEnd="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_close_details"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Close"
+            android:textSize="12sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#005A36"
+            app:cornerRadius="20dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
