@@ -11,13 +11,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseUser;
 import com.itismob.s03.wonder.pets.animospaces.R;
+import com.itismob.s03.wonder.pets.animospaces.data.FirebaseAuthManager;
 import com.itismob.s03.wonder.pets.animospaces.data.UserManager;
 import com.itismob.s03.wonder.pets.animospaces.model.UserRole;
 import com.itismob.s03.wonder.pets.animospaces.ui.home.HomeActivity;
@@ -30,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     private Spinner spinnerDemoAccount;
     private EditText etEmail;
     private EditText etPassword;
+    private ActivityResultLauncher<Intent> googleSignInLauncher;
 
     private final String[] presetEmails = {
             "student@dlsu.edu.ph",
@@ -62,16 +71,41 @@ public class LoginActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.et_login_email);
         etPassword = findViewById(R.id.et_login_password);
         MaterialButton btnLogin = findViewById(R.id.btn_login);
+        MaterialButton btnGoogleSignIn = findViewById(R.id.btn_google_sign_in);
         TextView tvGotoSignup = findViewById(R.id.tv_goto_signup);
 
         setupDemoSpinner();
+
+        googleSignInLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+                        try {
+                            GoogleSignInAccount account = task.getResult(ApiException.class);
+                            if (account != null) {
+                                handleGoogleSignInAccount(account);
+                            }
+                        } catch (ApiException e) {
+                            Toast.makeText(this, "Google Sign-In failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
+
+        if (btnGoogleSignIn != null) {
+            btnGoogleSignIn.setOnClickListener(v -> {
+                Intent signInIntent = FirebaseAuthManager.getInstance().getGoogleSignInClient(this).getSignInIntent();
+                googleSignInLauncher.launch(signInIntent);
+            });
+        }
 
         btnLogin.setOnClickListener(v -> {
             String email = etEmail.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
 
-            if (!email.endsWith("@dlsu.edu.ph")) {
-                Toast.makeText(this, "Please enter a valid DLSU institutional email (@dlsu.edu.ph).", Toast.LENGTH_LONG).show();
+            if (email.isEmpty()) {
+                Toast.makeText(this, "Please enter your email address.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -83,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
             // Assign User Session
             int selectedIndex = spinnerDemoAccount.getSelectedItemPosition();
             UserRole activeRole = presetRoles[selectedIndex];
-            UserManager.getInstance().loginPreset(activeRole);
+            UserManager.getInstance().loginByEmail(email);
 
             Toast.makeText(this, "Welcome back! Logged in as " + activeRole.getDisplayName() + ".", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
@@ -97,6 +131,23 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             });
         }
+    }
+
+    private void handleGoogleSignInAccount(GoogleSignInAccount account) {
+        FirebaseAuthManager.getInstance().firebaseAuthWithGoogle(account, new FirebaseAuthManager.AuthCallback() {
+            @Override
+            public void onSuccess(FirebaseUser user, UserRole role) {
+                Toast.makeText(LoginActivity.this, "Welcome " + UserManager.getInstance().getFirstName() + "! Logged in as " + role.getDisplayName(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                Toast.makeText(LoginActivity.this, errorMessage, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void setupDemoSpinner() {

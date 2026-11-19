@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -43,4 +44,14 @@ dependencies {
 
     // Mapbox Maps SDK for Android
     implementation("com.mapbox.maps:android:11.10.0")
+
+    // Firebase SDKs
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage)
+    implementation(libs.play.services.auth)
+
+    // iCalendar API
+    implementation(libs.biweekly)
 }

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.itismob.s03.wonder.pets.animospaces.R;
 import com.itismob.s03.wonder.pets.animospaces.model.Reservation;
 import com.itismob.s03.wonder.pets.animospaces.model.ReservationStatus;
+import com.itismob.s03.wonder.pets.animospaces.util.ICalendarHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +85,12 @@ public class UserReservationAdapter extends RecyclerView.Adapter<UserReservation
             }
         }
 
+        if (holder.btnExportICal != null) {
+            holder.btnExportICal.setOnClickListener(v ->
+                ICalendarHelper.exportReservationToICalendar(v.getContext(), res)
+            );
+        }
+
         holder.itemView.setOnClickListener(v -> {
             if (clickListener != null) {
                 clickListener.onReservationClick(res);
@@ -103,6 +110,7 @@ public class UserReservationAdapter extends RecyclerView.Adapter<UserReservation
         TextView tvDate;
         TextView tvTime;
         TextView tvAttendees;
+        View btnExportICal;
 
         UserReservationViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -112,6 +120,7 @@ public class UserReservationAdapter extends RecyclerView.Adapter<UserReservation
             tvDate = itemView.findViewById(R.id.tv_res_date);
             tvTime = itemView.findViewById(R.id.tv_res_time);
             tvAttendees = itemView.findViewById(R.id.tv_res_attendees);
+            btnExportICal = itemView.findViewById(R.id.btn_export_ical);
         }
     }
 }

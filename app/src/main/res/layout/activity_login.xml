@@ -162,6 +162,32 @@
             app:cornerRadius="26dp"
             android:backgroundTint="#005A36"
             android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp" />
+
+        <!-- OR Divider -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OR"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#9CA3AF"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Google Sign-In Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_google_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Sign in with Google"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            app:cornerRadius="26dp"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#374151"
+            app:strokeColor="#D1D5DB"
+            app:strokeWidth="1dp"
             android:layout_marginBottom="20dp" />
 
         <!-- Bottom Signup Link -->

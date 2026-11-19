@@ -15,6 +15,7 @@ public class Building {
     private String description;
     private String category; // e.g., "Academic", "Administrative", "Laboratory", "Sports"
     private int imageResId;
+    private String imageUrl;
 
     public Building(String id, String name, String code, Campus campus, double latitude, double longitude,
                     List<Integer> availableFloors, String description, String category) {
@@ -77,5 +78,13 @@ public class Building {
 
     public void setImageResId(int imageResId) {
         this.imageResId = imageResId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

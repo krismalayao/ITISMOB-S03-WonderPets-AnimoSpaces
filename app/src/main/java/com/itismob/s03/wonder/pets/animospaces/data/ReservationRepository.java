@@ -21,6 +21,12 @@ public class ReservationRepository {
 
     private ReservationRepository() {
         initSampleData();
+        FirestoreService.getInstance().listenToReservations(remoteList -> {
+            if (remoteList != null && !remoteList.isEmpty()) {
+                reservations.clear();
+                reservations.addAll(remoteList);
+            }
+        });
     }
 
     public static synchronized ReservationRepository getInstance() {
@@ -161,6 +167,7 @@ public class ReservationRepository {
         );
 
         reservations.add(0, newRes);
+        FirestoreService.getInstance().saveReservation(newRes);
 
         NotificationItem notif = new NotificationItem(
                 "notif_" + System.currentTimeMillis(),
@@ -188,6 +195,7 @@ public class ReservationRepository {
         for (Reservation r : reservations) {
             if (r.getId().equalsIgnoreCase(reservationId)) {
                 r.setStatus(ReservationStatus.APPROVED);
+                FirestoreService.getInstance().updateReservationStatus(reservationId, ReservationStatus.APPROVED, null);
 
                 // Add Approval Notification
                 NotificationItem notif = new NotificationItem(
@@ -218,6 +226,7 @@ public class ReservationRepository {
             if (r.getId().equalsIgnoreCase(reservationId)) {
                 r.setStatus(ReservationStatus.REJECTED);
                 r.setRejectionReason(reason);
+                FirestoreService.getInstance().updateReservationStatus(reservationId, ReservationStatus.REJECTED, reason);
 
                 // Add Rejection Notification
                 NotificationItem notif = new NotificationItem(
@@ -256,6 +265,7 @@ public class ReservationRepository {
         for (Reservation r : reservations) {
             if (r.getId().equalsIgnoreCase(reservationId)) {
                 r.setStatus(ReservationStatus.CANCELLED);
+                FirestoreService.getInstance().updateReservationStatus(reservationId, ReservationStatus.CANCELLED, null);
                 NotificationItem notif = new NotificationItem(
                         "notif_" + System.currentTimeMillis(),
                         "Reservation Cancelled",
