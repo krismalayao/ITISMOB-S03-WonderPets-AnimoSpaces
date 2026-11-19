@@ -13,6 +13,7 @@ public class Room {
     private boolean isAvailable;
     private final String scheduleSummary;
     private final List<String> amenities;
+    private String imageUrl;
 
     public Room(String id, String buildingId, String buildingName, String roomCode, int floorLevel,
                 int capacity, String roomType, boolean isAvailable, String scheduleSummary, List<String> amenities) {
@@ -70,5 +71,13 @@ public class Room {
 
     public List<String> getAmenities() {
         return amenities;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
