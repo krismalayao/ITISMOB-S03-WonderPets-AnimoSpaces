@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Animo Spaces</string>
+    <!-- Mapbox Access Token -->
+    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiYW5nZWx5bmNodWEiLCJhIjoiY212ejljZDVoMW91bzJ4b2RiZG40eThybCJ9.QHHM4m9NsW278BFZl5NdNQ</string>
+
+    <string name="campus_dlsu_manila">DLSU Manila Campus</string>
+    <string name="search_buildings_rooms_hint">Search DLSU building or room (e.g. Andrew, LS, G302)&#8230;</string>
+    <string name="filter_all">All</string>
+    <string name="filter_available">Available Only</string>
+    <string name="filter_reserved">Reserved</string>
+    <string name="status_available">Available</string>
+    <string name="status_reserved">Reserved</string>
+    <string name="select_building">Select Building</string>
+    <string name="floor_level">Floor Level</string>
+    <string name="reserve_room">Reserve Room</string>
+</resources>

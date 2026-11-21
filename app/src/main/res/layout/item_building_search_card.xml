@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_building_search"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#005A36">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Building Image / Picture Header Preview -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_search_building_image"
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_building_placeholder"
+            android:contentDescription="Building Picture"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <!-- Header: Code, Name & Category -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tv_search_building_code"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="ANDREW"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#005A36"
+                        android:background="@drawable/bg_chip_code"
+                        android:paddingStart="8dp"
+                        android:paddingTop="3dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="3dp"
+                        android:layout_marginEnd="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_search_building_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        tools:text="Andrew Gonzalez Hall"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#111827"
+                        android:ellipsize="end"
+                        android:maxLines="1" />
+
+                    <TextView
+                        android:id="@+id/tv_search_building_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Academic"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="#0369A1"
+                        android:background="@drawable/bg_badge_pill"
+                        android:paddingStart="8dp"
+                        android:paddingTop="2dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="2dp"
+                        android:layout_marginStart="6dp"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!-- Description Preview -->
+            <TextView
+                android:id="@+id/tv_search_building_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="20-storey multi-purpose academic and administrative building housing high-capacity classrooms and multi-media halls."
+                android:textSize="12.5sp"
+                android:textColor="#4B5563"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Match Highlight Tag (Shown if query matched a specific room/amenity) -->
+            <TextView
+                android:id="@+id/tv_search_match_highlight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Matches Room A0801 (Classroom)"
+                android:textSize="11.5sp"
+                android:textStyle="italic"
+                android:textColor="#15803D"
+                android:background="@drawable/bg_status_available"
+                android:paddingStart="8dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="4dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <!-- Quick Specs / Room Availability Stats -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/tv_search_stat_floors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="🏢 20 Floors"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="#374151"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:id="@+id/tv_search_stat_rooms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="🚪 4 Rooms • 3 Available"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="#059669"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:id="@+id/tv_search_stat_campus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="📍 DLSU Manila"
+                    android:textSize="12sp"
+                    android:textColor="#6B7280" />
+
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F3F4F6"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Action Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_locate_map"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Locate on Map"
+                    android:textSize="11.5sp"
+                    android:textColor="#005A36"
+                    app:strokeColor="#005A36"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="18dp"
+                    android:layout_marginEnd="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_view_details"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Explore Rooms"
+                    android:textSize="11.5sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#005A36"
+                    app:cornerRadius="18dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
